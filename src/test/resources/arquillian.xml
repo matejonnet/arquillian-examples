@@ -38,7 +38,7 @@
                 <property name="libraDomain">rhcloud.com</property>
                 <property name="namespace">mlazar</property>
                 <property name="application">jboss001</property>
-                <property name="sshUserName">202061aa559b4950a197648e8bb4f531</property>
+                <property name="sshUserName">102061aa559b4950a197648e8bb4f531</property>
                 <property name="passphrase">password</property>
                 <property name="login">mlazar@redhat.com</property>
                 <property name="identityFile">/home/matej/.ssh/id_rsa</property>
@@ -54,7 +54,7 @@
                 <property name="libraDomain">rhcloud.com</property>
                 <property name="namespace">mlazar</property>
                 <property name="application">jboss001</property>
-                <property name="sshUserName">202061aa559b4950a197648e8bb4f531</property>
+                <property name="sshUserName">102061aa559b4950a197648e8bb4f531</property>
                 <property name="passphrase">password</property>
                 <property name="login">mlazar@redhat.com</property>
                 <property name="identityFile">/home/matej/.ssh/id_rsa</property>

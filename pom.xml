@@ -58,6 +58,13 @@
             <scope>test</scope>
             <version>${version.arquillian}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-core</artifactId>
+            <version>5.2.0.Beta3</version>
+            <scope>test</scope>
+        </dependency>
                 
 
     </dependencies>
