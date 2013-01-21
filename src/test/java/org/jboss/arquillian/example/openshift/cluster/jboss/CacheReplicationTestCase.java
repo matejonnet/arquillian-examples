@@ -23,6 +23,7 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class CacheReplicationTestCase {
 
+    //add eager start to cache config <cache-container name="cluster" aliases="ha-partition" default-cache="default" start="EAGER">
     @Resource(mappedName="java:jboss/infinispan/container/cluster")
     CacheContainer container;
 
@@ -30,7 +31,7 @@ public class CacheReplicationTestCase {
 
     private Cache<String, String> getCache() {
         if (cache == null) {
-            cache = container.getCache("search");
+            cache = container.getCache();
         }
         return cache;
     }
@@ -53,6 +54,7 @@ public class CacheReplicationTestCase {
     @Test
     @OperateOnDeployment("dep2")
     public void wakeUpCacheB() throws IOException {
+        waitForSync();
         getCache();
     }
 

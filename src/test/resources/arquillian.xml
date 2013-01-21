@@ -10,35 +10,12 @@
    <!-- start two JBoss AS nodes with HA configuration -->
    <group qualifier="jboss-cluster" >
 
-        <!--
-        node 1 config:
-        ./standalone.sh -c standalone-ha.xml -Djboss.node.name=node-a -Djboss.server.data.dir=<JBOSS_HOME>/standalone/data1
-        -->
-        <!--container qualifier="container-1" >
-            <configuration>
-                <property name="managementAddress">127.0.0.1</property>
-                <property name="managementPort">9999</property>
-            </configuration>
-        </container-->
-
-        <!--
-        node 2 config:
-         - use port offset 100
-         ./standalone.sh -c standalone-ha.xml -Djboss.node.name=node-b -Djboss.server.data.dir=<JBOSS_HOME>/standalone/data2 -Djboss.socket.binding.port-offset=100
-        -->
-        <!-- container qualifier="container-2">
-            <configuration>
-                <property name="managementAddress">127.0.0.1</property>
-                <property name="managementPort">10099</property>
-            </configuration>
-        </container-->
-
         <container qualifier="openshift-node1">
             <configuration>
                 <property name="libraDomain">rhcloud.com</property>
                 <property name="namespace">mlazar</property>
-                <property name="application">jboss001</property>
-                <property name="sshUserName">102061aa559b4950a197648e8bb4f531</property>
+                <property name="application">arqtest01</property>
+                <property name="sshUserName">1300a2cce20e42bebddf88c79bc234c5</property>
                 <property name="passphrase">password</property>
                 <property name="login">mlazar@redhat.com</property>
                 <property name="identityFile">/home/matej/.ssh/id_rsa</property>
@@ -46,15 +23,14 @@
                 <property name="deploymentTimeoutInSeconds">90</property>
                 <property name="proxyRequests">true</property>
                 <property name="trustAllSslStores">true</property>
-             </configuration>
+            </configuration>
         </container>
 
         <container qualifier="openshift-node2">
-            <configuration>
                 <property name="libraDomain">rhcloud.com</property>
                 <property name="namespace">mlazar</property>
-                <property name="application">jboss001</property>
-                <property name="sshUserName">102061aa559b4950a197648e8bb4f531</property>
+                <property name="application">arqtest01</property>
+                <property name="sshUserName">1300a2cce20e42bebddf88c79bc234c5</property>
                 <property name="passphrase">password</property>
                 <property name="login">mlazar@redhat.com</property>
                 <property name="identityFile">/home/matej/.ssh/id_rsa</property>
@@ -62,7 +38,6 @@
                 <property name="deploymentTimeoutInSeconds">90</property>
                 <property name="proxyRequests">true</property>
                 <property name="trustAllSslStores">true</property>
-             </configuration>
         </container>
     </group>
 </arquillian>
