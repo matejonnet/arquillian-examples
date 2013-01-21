@@ -35,7 +35,6 @@ public class SimpleClusteredTestCase {
     @InSequence(10)
     @Test
     @OperateOnDeployment("dep1")
-    //@TargetsContainer("openshift-node1")  //TODO why is TargetsContainer used in ServletURIHandler.locateHTTPContext,it could be read from deployment
     public void testCacheOnDepA() {
         System.out.println("Running test on dep1.");
     }
@@ -43,7 +42,6 @@ public class SimpleClusteredTestCase {
     @InSequence(20)
     @Test
     @OperateOnDeployment("dep2")
-    //@TargetsContainer("openshift-node2")
     public void testCacheOnDepB() {
         System.out.println("Running test on dep2.");
     }
@@ -51,7 +49,6 @@ public class SimpleClusteredTestCase {
     @InSequence(30)
     @Test
     @OperateOnDeployment("dep1")
-    //@TargetsContainer("openshift-node1")
     public void testCacheOnDepA1() {
         System.out.println("Running 2nd test on dep1.");
     }
@@ -59,7 +56,6 @@ public class SimpleClusteredTestCase {
     @InSequence(40)
     @Test
     @OperateOnDeployment("dep2")
-    //@TargetsContainer("openshift-node2")
     public void testCacheOnDepB1() {
         System.out.println("Running 2nd test on dep2..");
     }

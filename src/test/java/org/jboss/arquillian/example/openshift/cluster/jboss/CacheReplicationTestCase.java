@@ -23,7 +23,6 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class CacheReplicationTestCase {
 
-    //@Resource(mappedName="java:jboss/infinispan/container/capedwarf")
     @Resource(mappedName="java:jboss/infinispan/container/cluster")
     CacheContainer container;
 
@@ -63,7 +62,7 @@ public class CacheReplicationTestCase {
     @OperateOnDeployment("dep1")
     public void testCacheOnDepA() {
         waitForSync();
-        System.out.println("Running test on dep1.");
+        System.out.println(">>> Running test on dep1: writting to cache.");
         getCache().put("key", "value");
     }
 
@@ -72,8 +71,9 @@ public class CacheReplicationTestCase {
     @OperateOnDeployment("dep1")
     public void readFromCacheOnDepA() {
         waitForSync();
-        System.out.println("Running test on dep1.");
+        System.out.println(">>> Running test on dep1: reading from cache.");
         String value = getCache().get("key");
+        System.out.println(">>> Cache on dep1:" + value);
         Assert.assertEquals("value", value);
     }
 
@@ -82,8 +82,9 @@ public class CacheReplicationTestCase {
     @OperateOnDeployment("dep2")
     public void readFromCacheOnDepB() {
         waitForSync();
-        System.out.println("Running test on dep2.");
+        System.out.println(">>> Running test on dep2: reading from cache.");
         String value = getCache().get("key");
+        System.out.println(">>> Cache on dep2:" + value);
         Assert.assertEquals("value", value);
     }
 

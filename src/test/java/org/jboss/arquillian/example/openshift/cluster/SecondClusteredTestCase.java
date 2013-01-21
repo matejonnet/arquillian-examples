@@ -60,4 +60,10 @@ public class SecondClusteredTestCase {
         System.out.println("Running 2nd test " + this.getClass().getName() + " on dep2..");
     }
 
+    @InSequence(50)
+    @Test
+    @OperateOnDeployment("dep1")
+    public void undeploy() {
+        //dummy test to separate execution time from undeploy
+    }
 }
